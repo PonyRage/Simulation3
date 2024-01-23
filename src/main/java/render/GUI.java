@@ -13,6 +13,7 @@ public class GUI extends JFrame{
         private final int IMAGE_SIZE = 50;
 
         public GUI() {
+            setImages();
             initPanel();
             initFrame();
 
@@ -21,6 +22,7 @@ public class GUI extends JFrame{
 public void setImages() {
 for (Images images : Images.values()) {
     images.image = getImage(images.name());
+
 }
 }
 
@@ -39,7 +41,8 @@ for (Images images : Images.values()) {
                 @Override
                 public void paint(Graphics g) {
                     super.paint(g);
-                    g.drawImage(getImage("sheep"), 0,0, this);
+                    for (Images images: Images.values())
+                    g.drawImage((Image) images.image, images.ordinal() * IMAGE_SIZE,0, this);
                 }
             };
             panel.setPreferredSize(new Dimension(COLS * IMAGE_SIZE,
