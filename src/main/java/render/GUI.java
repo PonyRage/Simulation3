@@ -18,7 +18,11 @@ public class GUI extends JFrame{
 
         }
 
-
+public void setImages() {
+for (Images images : Images.values()) {
+    images.image = getImage(images.name());
+}
+}
 
         public void initFrame() {
             pack();
