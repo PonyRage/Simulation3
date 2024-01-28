@@ -15,7 +15,7 @@ public class GameAction {
     }
 
     public void start() {
-        entityMap = new Matrix(Images.ALIEN);
+        entityMap = new Matrix(Images.EMPTY);
     }
 
     public Images getImages(Coordinate coordinate) {
