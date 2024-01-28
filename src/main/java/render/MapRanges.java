@@ -20,4 +20,8 @@ public class MapRanges {
             }
         }
     }
+
+    public static ArrayList<Coordinate> getAllCoordinates() {
+        return allCoordinates;
+    }
 }
