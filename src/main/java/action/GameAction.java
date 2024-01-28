@@ -1,11 +1,13 @@
+package action;
+
 import render.Coordinate;
 import render.Images;
 import render.MapRanges;
 
 
-public class Action {
+public class GameAction {
 
-    public Action(int cols, int rows) {
+    public GameAction(int cols, int rows) {
         MapRanges.setSize(new Coordinate(cols, rows));
     }
 

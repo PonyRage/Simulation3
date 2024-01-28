@@ -2,18 +2,19 @@ package render;
 
 import javax.swing.*;
 import java.awt.*;
-
+import action.GameAction;
 
 
 public class GUI extends JFrame {
 
+    private GameAction action;
     private JPanel panel;
     private final int COLS = 15;
     private final int ROWS = 15;
     private final int IMAGE_SIZE = 50;
 
     public GUI() {
-        MapRanges.setSize(new Coordinate(COLS, ROWS));
+        action = new GameAction(COLS, ROWS);
         setImages();
         initPanel();
         initFrame();
@@ -41,7 +42,7 @@ public class GUI extends JFrame {
             public void paint(Graphics g) {
                 super.paint(g);
                 for(Coordinate coordinate: MapRanges.getAllCoordinates()) {
-                    g.drawImage((Image) Images.values() [(coordinate.x + coordinate.y) % Images.values().length].image,
+                    g.drawImage((Image) action.getImages(coordinate).image,
                             coordinate.x* IMAGE_SIZE, coordinate.y * IMAGE_SIZE,  this);
                 }
 
