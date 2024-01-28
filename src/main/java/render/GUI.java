@@ -40,9 +40,9 @@ public class GUI extends JFrame {
             @Override
             public void paint(Graphics g) {
                 super.paint(g);
-                for(Images images: Images.values()) {
-                    Coordinate coordinate = new Coordinate(images.ordinal() * IMAGE_SIZE, 0);
-                    g.drawImage((Image) images.image, coordinate.x, coordinate.y,  this);
+                for(Coordinate coordinate: MapRanges.getAllCoordinates()) {
+                    g.drawImage((Image) Images.values() [(coordinate.x + coordinate.y) % Images.values().length].image,
+                            coordinate.x* IMAGE_SIZE, coordinate.y * IMAGE_SIZE,  this);
                 }
 
             }
