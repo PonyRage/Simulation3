@@ -15,6 +15,7 @@ public class GUI extends JFrame {
 
     public GUI() {
         action = new GameAction(COLS, ROWS);
+        action.start();
         setImages();
         initPanel();
         initFrame();
