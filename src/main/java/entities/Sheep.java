@@ -2,6 +2,7 @@ package entities;
 
 import render.Coordinate;
 import render.Images;
+import render.MapRanges;
 import render.Matrix;
 
 public class Sheep {
@@ -14,12 +15,16 @@ public class Sheep {
 
     public void initSheeps() {
         sheepMatrix = new Matrix(Images.EMPTY);
-        placeSheep();
+        for (int i = 0; i < totalSheeps; i++) {
+            placeSheep();
+        }
+
     }
 public Images get(Coordinate coordinate) {
         return sheepMatrix.get(coordinate);
 }
     private void placeSheep() {
-        sheepMatrix.set(new Coordinate(4, 4), Images.SHEEP);
+        Coordinate coordinate = MapRanges.getRandomCoordinate();
+        sheepMatrix.set(coordinate, Images.SHEEP);
     }
 }
