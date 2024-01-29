@@ -24,7 +24,12 @@ public Images get(Coordinate coordinate) {
         return sheepMatrix.get(coordinate);
 }
     private void placeSheep() {
-        Coordinate coordinate = MapRanges.getRandomCoordinate();
-        sheepMatrix.set(coordinate, Images.SHEEP);
+        while (true) {
+            Coordinate coordinate = MapRanges.getRandomCoordinate();
+            if (Images.SHEEP == sheepMatrix.get(coordinate))
+                continue;
+                sheepMatrix.set(coordinate, Images.SHEEP);
+                break;
+        }
     }
 }
