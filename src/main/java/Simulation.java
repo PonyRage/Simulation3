@@ -5,7 +5,8 @@ import javax.swing.*;
 public class Simulation {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            new GUI();
+            GUI gui = new GUI();
+            gui.startTimer();
         });
 
 

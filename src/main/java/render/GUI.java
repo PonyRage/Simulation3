@@ -2,6 +2,8 @@ package render;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -77,5 +79,15 @@ public class GUI extends JFrame {
         return icon.getImage();
     }
 
+    public void startTimer() {
+        Timer timer = new Timer(1000,  new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                action.makeMove();
+                panel.repaint();
+            }
+        });
+        timer.start();
+    }
 }
 
