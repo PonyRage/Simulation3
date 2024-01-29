@@ -24,4 +24,9 @@ public class MapRanges {
     public static ArrayList<Coordinate> getAllCoordinates() {
         return allCoordinates;
     }
+
+    static boolean inRange(Coordinate coordinate) {
+        return coordinate.x >= 0 && coordinate.x < size.x &&
+                coordinate.y >= 0 && coordinate.y < size.y;
+    }
 }
