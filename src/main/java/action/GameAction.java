@@ -1,5 +1,6 @@
 package action;
 
+import entities.Sheep;
 import render.Coordinate;
 import render.Images;
 import render.MapRanges;
@@ -8,17 +9,18 @@ import render.Matrix;
 
 public class GameAction {
 
-    Matrix entityMap;
+   private Sheep sheep;
 
-    public GameAction(int cols, int rows) {
+    public GameAction(int cols, int rows, int sheeps) {
         MapRanges.setSize(new Coordinate(cols, rows));
+        sheep = new Sheep(sheeps);
     }
 
     public void start() {
-        entityMap = new Matrix(Images.ALIEN);
+        sheep.initSheeps();
     }
 
     public Images getImages(Coordinate coordinate) {
-        return entityMap.get(coordinate);
+        return sheep.get(coordinate);
     }
 }

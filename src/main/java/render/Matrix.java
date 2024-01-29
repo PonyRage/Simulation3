@@ -18,7 +18,7 @@ public class Matrix {
         return null;
     }
 
-    void set(Coordinate coordinate, Images images) {
+    public void set(Coordinate coordinate, Images images) {
         if (MapRanges.inRange(coordinate))
             matrix[coordinate.x][coordinate.y] = images;
     }

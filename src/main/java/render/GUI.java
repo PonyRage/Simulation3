@@ -11,10 +11,11 @@ public class GUI extends JFrame {
     private JPanel panel;
     private final int COLS = 15;
     private final int ROWS = 15;
+    private final int SHEEPS = 10;
     private final int IMAGE_SIZE = 50;
 
     public GUI() {
-        action = new GameAction(COLS, ROWS);
+        action = new GameAction(COLS, ROWS, SHEEPS);
         action.start();
         setImages();
         initPanel();
