@@ -7,7 +7,7 @@ import java.util.Random;
 public class MapRanges {
     private static Coordinate size;
     private static ArrayList<Coordinate> allCoordinates;
-    private static Random random = new Random();
+    public static Random random = new Random();
 
     public static Coordinate getSize() {
         return size;
@@ -27,7 +27,7 @@ public class MapRanges {
         return allCoordinates;
     }
 
-    static boolean inRange(Coordinate coordinate) {
+    public static boolean inRange(Coordinate coordinate) {
         return coordinate.x >= 0 && coordinate.x < size.x &&
                 coordinate.y >= 0 && coordinate.y < size.y;
     }

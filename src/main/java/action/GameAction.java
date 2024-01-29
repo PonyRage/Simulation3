@@ -9,7 +9,7 @@ import render.Matrix;
 
 public class GameAction {
 
-   private Sheep sheep;
+    private Sheep sheep;
 
     public GameAction(int cols, int rows, int sheeps) {
         MapRanges.setSize(new Coordinate(cols, rows));
@@ -18,6 +18,13 @@ public class GameAction {
 
     public void start() {
         sheep.initSheeps();
+
+    }
+
+    public void makeMove() {
+        for (int i = 0; i < sheep.getTotalSheeps(); i++) {
+            sheep.makeMove(Images.SHEEP);
+        }
     }
 
     public Images getImages(Coordinate coordinate) {

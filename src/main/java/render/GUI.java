@@ -2,6 +2,9 @@ package render;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
 import action.GameAction;
 
 
@@ -21,6 +24,8 @@ public class GUI extends JFrame {
         initPanel();
         initFrame();
 
+
+
     }
 
     public void setImages() {
@@ -34,9 +39,19 @@ public class GUI extends JFrame {
         setTitle("Симуляция");
         setLocationRelativeTo(null);
         setResizable(false);
+
         setVisible(true);
         pack();
-    }
+
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                   action.makeMove();
+                    repaint();
+                }
+            }
+        });    }
 
     public void initPanel() {
         panel = new JPanel() {
@@ -53,6 +68,7 @@ public class GUI extends JFrame {
         panel.setPreferredSize(new Dimension(MapRanges.getSize().x * IMAGE_SIZE,
                 MapRanges.getSize().y * IMAGE_SIZE));
         add(panel);
+
     }
 
     public Image getImage(String name) {
